@@ -37,9 +37,9 @@ public class B11659 {
 		
 		int result = 0;
 		
-		for(int[] sE: startEnd) {
-			start = sE[0];
-			end = sE[1];
+		for(int[] se: startEnd) {
+			start = se[0];
+			end = se[1];
 			
 			result = numbers[end];
 			result -= numbers[start-1];
