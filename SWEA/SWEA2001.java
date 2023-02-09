@@ -23,19 +23,15 @@ public class SWEA2001 {
 			map = new int[N][N];
 			max = 0;
 			
-			//맵 형성과 구간합 동시에 하기
+			//맵 형성 및 구간합
 			for(int y = 1; y < N; y++) {
 				st = new StringTokenizer(in.readLine(), " ");
 				for(int x = 1; x < N; x++) {
 					map[y][x] = Integer.parseInt(st.nextToken()) +  map[y][x-1] + map[y-1][x] - map[y-1][x-1];
-				}
-			}
-
-			//M크기에 대해 구간합으로 변경해보기
-			for(int y = M; y < N; y++) {
-				for(int x = M; x < N; x++) {
-					target = map[y][x] - (map[y][x-M] + map[y-M][x] - map[y-M][x-M]);
-					max = Math.max(max, target);	//최대값 갱신
+					if(y >= M && x >= M) {	//M크기에 대한 구간합 구해보기
+						target = map[y][x] - (map[y][x-M] + map[y-M][x] - map[y-M][x-M]);
+						max = Math.max(max, target);	//최대값 갱신
+					}
 				}
 			}
 			
